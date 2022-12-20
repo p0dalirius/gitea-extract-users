@@ -51,7 +51,9 @@ def extract_gitea_users(target):
             cookies=cookies,
             verify=False
         )
-        if b"No matching users found." in r.content or bytes("Aucun utilisateur correspondant n'a été trouvé.", 'UTF-8') in r.content:
+        
+        target_content = [b"No matching users found.", bytes("Aucun utilisateur correspondant n'a été trouvé.", 'UTF-8')]
+        if any((match := substring) in r.content for substring in target_content):
             print('\n[+] Done processing.')
             continue_crawling = False
         else:
@@ -108,8 +110,8 @@ if __name__ == '__main__':
     options = parseArgs()
 
     options.target = options.target.rstrip("/")
-    if not options.target.startswith("http://") and not options.target.startswith("https://"):
-        options.target = "https://" + options.target
+    if not options.target.startswith(("http://", "https://")):
+        options.target = f"https://{options.target}"
 
     print('[+] Target : %s \n' % options.target)
 
