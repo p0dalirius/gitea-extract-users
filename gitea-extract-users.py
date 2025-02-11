@@ -98,7 +98,7 @@ def extract_gitea_users(target):
 
 
 def parseArgs():
-    print("Dump GiTea users via /explore/users endpoint - v1.1 - by @podalirius_\n")
+    print("Dump GiTea users via /explore/users endpoint - v1.1 - by Remi GASCOU (Podalirius)\n")
     parser = argparse.ArgumentParser(description="Dump GiTea users via /explore/users endpoint")
     parser.add_argument('-t', '--target', required=True, help='IP address or hostname of the GiTea to target.')
     parser.add_argument('-o', '--outfile', required=False, default=None, help='Output JSON file of all the found users.')

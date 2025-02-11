@@ -19,7 +19,7 @@
 
 ```
 $ ./gitea-extract-users.py -h
-Dump GiTea users via /explore/users endpoint - v1.1 - by @podalirius_
+Dump GiTea users via /explore/users endpoint - v1.1 - by Remi GASCOU (Podalirius)
 
 usage: gitea-extract-users.py [-h] -t TARGET [-o OUTFILE] [-c COOKIE]
 
